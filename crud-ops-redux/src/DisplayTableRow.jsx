@@ -61,10 +61,10 @@ export default function DisplayTableRow(props) {
               name="Gender"
               onChange={(e) => setGender(e.target.value)}
               value={Gender}
-              defaultValue={Gender === "Male" ? 1 : 2}
+              defaultValue={Gender === "Male" ? "Male" : "Female"}
             >
-              <option value="1">Male</option>
-              <option value="2">Female</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
             </select>
           </div>
           <input
