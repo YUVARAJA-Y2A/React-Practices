@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { addForm } from "./features/Forms";
-import { FormData } from "./StoredData";
+
 import "./validation.css";
 
 export default function Validation() {
@@ -14,13 +14,9 @@ export default function Validation() {
   } = useForm();
 
   const onSubmit = (data) => {
-    const initialdispatch = dispatch(addForm(data));
-
-    console.log(initialdispatch.payload);
-    // console.log(initialdispatch.payload.unshift(id:));
-    // const finaldispatch=
+    dispatch(addForm(data));
   };
-  // const onSubmit = (data) => console.log(data);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="field-container">
@@ -91,25 +87,6 @@ export default function Validation() {
           <label>E-mail ID</label>
           <input {...register("emailid", { required: true, maxLength: 20 })} />
           {errors.emailid && (
-            <div className="error-message">* This field is required</div>
-          )}
-        </div>
-        <div className="input-fields">
-          <label>Password</label>
-          <input {...register("password", { required: true, minLength: 8 })} />
-          {errors.password && (
-            <div className="error-message">* This field is required</div>
-          )}
-        </div>
-        <div className="input-fields">
-          <label>Confirm Password</label>
-          <input
-            {...register("confirmpassword", {
-              required: true,
-              minLength: 8,
-            })}
-          />
-          {errors.confirmpassword && (
             <div className="error-message">* This field is required</div>
           )}
         </div>
