@@ -1,0 +1,49 @@
+.data-list-main {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+.table-head {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 2%;
+  label {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+.table-row-data {
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  label {
+    padding: 5%;
+  }
+  input {
+    width: auto;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .table-row-button-group {
+    display: flex;
+
+    button {
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+  }
+}
+.forms {
+  display: flex;
+  // justify-content: space-between;
+  align-items: center;
+  input {
+    height: 25px;
+    width: 80px;
+  }
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
