@@ -76,7 +76,7 @@ function UpdateForm() {
         <label>Mobile Number</label>
         <input
           name="mobilenumber"
-          value={activeform ? currentdata.mobilenumber : mobilenumber}
+          value={mobilenumber}
           onChange={(e) => setmobilenumber(e.target.value)}
           required={true}
           minLength="10"
@@ -88,7 +88,7 @@ function UpdateForm() {
         <label>E-mail ID</label>
         <input
           name="emailid"
-          value={activeform ? currentdata.emailid : emailid}
+          value={emailid}
           onChange={(e) => setemailid(e.target.value)}
           required={true}
           maxLength="20"
