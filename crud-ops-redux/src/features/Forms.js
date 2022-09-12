@@ -4,7 +4,7 @@ import { FormData } from "../StoredData";
 
 export const formUpdates = createSlice({
   name: "forms",
-  initialState: { value: FormData },
+  initialState: { value: FormData, currentData: null, editMode: false },
   reducers: {
     addForm: (state, action) => {
       state.value.push({ id: state.value.length + 1, ...action.payload });
@@ -14,8 +14,13 @@ export const formUpdates = createSlice({
         (_, index) => index !== action.payload.index
       );
     },
-
+    editForm: (state, action) => {
+      state.currentData = action.payload;
+      state.editMode = true;
+      console.log(state.currentData);
+    },
     updateForm: (state, action) => {
+      state.editMode = false;
       const newState = state.value.map((data) => {
         if (data.id === action.payload.newList.id) {
           return action.payload.newList;
