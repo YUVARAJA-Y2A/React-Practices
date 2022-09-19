@@ -8,11 +8,15 @@ export const ChatData = [
     country_code: 91,
     otp: 2022,
     messages: [
-      { delivery_type: "recieved", name: "Shanmugam", message: "Hello, Shan" },
+      {
+        delivery_type: "recieved",
+        name: "Shanmugam",
+        message: "How are you, Siddesh",
+      },
       {
         delivery_type: "sent",
         name: "Shanmugam",
-        message: "How are you, Siddesh",
+        message: "Hello, Shan",
       },
     ],
   },
@@ -20,16 +24,20 @@ export const ChatData = [
     id: 2,
     username: "Kutty Pranav",
     profile_image:
-      "https://scontent.fmaa12-2.fna.fbcdn.net/v/t1.18169-9/16142865_1663567073941460_7069289789058605816_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=zD0mr8ouK-QAX9bMS2G&_nc_ht=scontent.fmaa12-2.fna&oh=00_AT9mLRfSA3diQhJB7-SvdTscfCto5QfZJ2fAC3uIdLMo4Q&oe=633D4E2B",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQs63hGhOoZ9Z9uVValv6AR9zDBaoNt-_Zvyw&usqp=CAU",
     mobile_no: 3213213210,
     country_code: 1,
     otp: 2022,
     messages: [
-      { delivery_type: "recieved", name: "Pranav", message: "Hello, Pranav" },
+      {
+        delivery_type: "recieved",
+        name: "Pranav",
+        message: "How are you, Kutty Pranav",
+      },
       {
         delivery_type: "sent",
         name: "Pranav",
-        message: "How are you, Kutty Pranav",
+        message: " Hello, Pranav",
       },
     ],
   },
@@ -45,12 +53,12 @@ export const ChatData = [
       {
         delivery_type: "recieved",
         name: "Siddesh",
-        message: "Hello, Siddesh",
+        message: "How are you, Shanmugam",
       },
       {
         delivery_type: "sent",
         name: "Siddesh",
-        message: "How are you, Shanmugam",
+        message: "Hello, Siddesh",
       },
     ],
   },
@@ -66,12 +74,12 @@ export const ChatData = [
       {
         delivery_type: "recieved",
         name: "Kutty Pranav",
-        message: "Hello, Kutty Pranav",
+        message: "How are you, Pranav ",
       },
       {
         delivery_type: "sent",
         name: "Kutty Pranav",
-        message: "How are you, Pranav",
+        message: "Hello, Kutty Pranav",
       },
     ],
   },

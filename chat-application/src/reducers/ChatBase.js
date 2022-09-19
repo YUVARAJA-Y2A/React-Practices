@@ -4,10 +4,13 @@ import { ChatData } from "../Data/ChatDatabase";
 
 export const chatUpdates = createSlice({
   name: "chats",
-  initialState: { value: ChatData, message: [], activeprofile: null },
+  initialState: { value: ChatData, activeprofile: null },
   reducers: {
     displayMessage: (state, action) => {
-      state.message = action.payload;
+      const currentprofile = state.value.filter(
+        (data) => data.mobile_no === action.payload
+      );
+      state.value = currentprofile;
     },
     activeProfile: (state, action) => {
       state.activeprofile = action.payload;

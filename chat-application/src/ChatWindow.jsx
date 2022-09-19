@@ -7,10 +7,13 @@ import { sendMessage } from "./reducers/ChatBase";
 function ChatWindow() {
   const dispatch = useDispatch();
   const memberList = useSelector((state) => state.chats.value);
-  const messageView = useSelector((state) => state.chats.message);
+
+  const currentactiveprofile = useSelector(
+    (state) => state.chats.activeprofile
+  );
   const [sentmessage, setsentmessage] = useState();
-  console.log(sentmessage);
-  const handleSendMessage = () => {
+
+  const handleSendMessage = (e) => {
     dispatch(
       sendMessage({
         delivery_type: "sent",
@@ -18,19 +21,30 @@ function ChatWindow() {
         message: sentmessage,
       })
     );
+
     // messageView.push({
     //   delivery_type: "sent",
     //   name: "Siddesh",
     //   message: sentmessage,
     // });
   };
-  const currentactiveprofile = useSelector(
-    (state) => state.chats.activeprofile
-  );
+  const handleSendMessageOnKeypress = (e) => {
+    if (e.code === "Enter" || e.code === "NumpadEnter") {
+      dispatch(
+        sendMessage({
+          delivery_type: "sent",
+          name: "Siddesh",
+          message: sentmessage,
+        })
+      );
+      setsentmessage("");
+    }
+  };
+
   const currentprofile = memberList.filter(
     (dat) => dat.mobile_no === currentactiveprofile
   );
-  console.log(currentprofile, "curr");
+
   return (
     <div>
       <div className="container-main">
@@ -69,31 +83,38 @@ function ChatWindow() {
             ))}
           </div>
           <div className="textarea">
-            {messageView.map((dat) => (
-              <div
-                className={`p-1 d-flex ${
-                  dat.delivery_type === "sent"
-                    ? "justify-content-start"
-                    : "justify-content-end"
-                } `}
-              >
-                <label
-                  className={
-                    (dat.delivery_type === "sent" && "sent-message-single") ||
-                    (dat.delivery_type === "recieved" &&
-                      "recieved-message-single")
-                  }
+            {console.log(
+              currentprofile.map((dat) => dat.messages.map((d) => d)),
+              "current message"
+            )}
+            {currentprofile.map((data) =>
+              data.messages.map((dat) => (
+                <div
+                  className={`p-1 d-flex ${
+                    dat.delivery_type === "sent"
+                      ? "justify-content-start"
+                      : "justify-content-end"
+                  } `}
                 >
-                  {dat.message}
-                </label>
-              </div>
-            ))}
+                  <label
+                    className={
+                      (dat.delivery_type === "sent" && "sent-message-single") ||
+                      (dat.delivery_type === "recieved" &&
+                        "recieved-message-single")
+                    }
+                  >
+                    {dat.message}
+                  </label>
+                </div>
+              ))
+            )}
           </div>
           <div className="text-field-rightside">
             <input
               type="text"
               value={sentmessage}
               onChange={(e) => setsentmessage(e.target.value)}
+              onKeyPress={(e) => handleSendMessageOnKeypress(e)}
               className="text-input ms-2"
             />
             <SendIcon

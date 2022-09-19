@@ -1,17 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./chatmembers.scss";
-import { displayMessage, activeProfile } from "./reducers/ChatBase";
+import { activeProfile, displayMessage } from "./reducers/ChatBase";
 export default function ChatMembers(props) {
   const dispatch = useDispatch();
-  const { username, mobile, messages, profilepic } = props;
+  const { username, mobile, profilepic } = props;
   const currentactiveprofile = useSelector(
     (state) => state.chats.activeprofile
   );
 
-  const handleClick = (mobile, messages) => {
+  const handleClick = (mobile) => {
     dispatch(activeProfile(mobile));
-    dispatch(displayMessage(messages));
+    // dispatch(displayMessage(mobile));
   };
 
   return (
@@ -22,7 +22,7 @@ export default function ChatMembers(props) {
           backgroundColor:
             currentactiveprofile === mobile && "rgb(18, 30, 210)",
         }}
-        onClick={() => handleClick(mobile, messages)}
+        onClick={() => handleClick(mobile)}
       >
         <div className="d-flex align-items-center">
           <img className="profile-img" src={profilepic} />
